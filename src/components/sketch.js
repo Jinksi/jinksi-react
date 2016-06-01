@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-import One from '../sketches/001';
+import One from '../sketches/001'
 
-export default () => {
-  return (
-    <One />
-  )
+class Sketch extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
+  shouldComponentUpdate(){
+    return false;
+  }
+
+  render(){
+    return (
+      <div id='sketchContainer'>
+        <One />
+      </div>
+    )
+  }
 }
+
+export default Sketch

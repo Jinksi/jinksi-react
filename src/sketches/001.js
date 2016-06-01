@@ -109,7 +109,6 @@ export default () => {
   new p5(sketch, 'sketchContainer')
 
   return (
-    <div id='sketchContainer'>
-    </div>
+    <div></div>
   )
 }
