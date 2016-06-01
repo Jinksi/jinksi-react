@@ -5,13 +5,13 @@ import { render } from 'react-dom'
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
 
 import App from './components/app'
-import Home from './components/home'
+import About from './components/about'
 import NoMatch from './components/nomatch'
 
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={About} />
       <Route path="*" component={NoMatch}/>
     </Route>
   </Router>
