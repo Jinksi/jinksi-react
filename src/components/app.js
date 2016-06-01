@@ -18,10 +18,9 @@ class App extends Component {
     return (
       <div>
         <Sketch />
-
         <Header />
         <div className="container row fullheight no-pointer vertmid">
-          <div className="animated fadeIn eight columns content offset-by-four">
+          <div className="eight columns content offset-by-four">
             <div>
               {this.props.children}
             </div>
