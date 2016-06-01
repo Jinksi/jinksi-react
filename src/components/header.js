@@ -6,15 +6,16 @@ export default (props) => {
     <header className="header">
       <div className="container row">
         <div className="animated fadeIn four columns vertmid">
-          <h1 className="logo"><Link to="/">Eric Jinks</Link></h1>
+          <h1 className="logo"><Link to="/">
+            <span>Eric</span><span>Jinks</span>
+          </Link></h1>
           <div className="info">
             <div className="typed"></div>
           </div>
           <nav className="nav">
             <ul>
-              <li>
-                <Link to="/sketches">Sketches</Link>
-              </li>
+              <li><Link to="/">About</Link></li>
+              <li><Link to="/sketches">Sketches</Link></li>
             </ul>
           </nav>
           <ul className="social">
