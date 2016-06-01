@@ -10,7 +10,7 @@ var webpack = require('webpack-stream');
 
 var src = {
   scss: 'src/scss/**/*.scss',
-  css:  './'
+  css:  'style'
 };
 
 gulp.task('clean', function(){
