@@ -1005,3 +1005,9 @@ hr {
 .tag{
 
 }
+
+#sketchContainer,
+canvas{
+  position: fixed 0;
+  z-index: -1;
+}
