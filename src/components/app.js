@@ -10,14 +10,9 @@ class App extends Component {
     super(props)
   }
 
-  componentDidMount(){
-
-  }
-
   render(){
     return (
       <div>
-        <Sketch />
         <Header />
         <div className="container row fullheight no-pointer vertmid">
           <div className="eight columns content offset-by-four">
@@ -27,6 +22,7 @@ class App extends Component {
           </div>
         </div>
         <Footer />
+        <Sketch ref={"sketchComponent"} />
       </div>
     )
   }
