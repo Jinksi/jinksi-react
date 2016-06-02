@@ -69,6 +69,8 @@ gulp.task('dist-files', ['clean'], function(){
     .pipe(gulp.dest('dist/fonts/'));
   gulp.src('images/**.*')
     .pipe(gulp.dest('dist/images/'));
+  gulp.src('sketches/**.*')
+    .pipe(gulp.dest('dist/sketches/'));
   gulp.src('./index.html')
     .pipe(gulp.dest('./dist/'))
     .pipe(rename('200.html'))

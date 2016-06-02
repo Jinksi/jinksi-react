@@ -1,4 +1,4 @@
-export default (p) => {
+function sketch001(p){
   var tracer1;
   var tracer2;
   var tracer3;
@@ -6,6 +6,7 @@ export default (p) => {
 
   p.setup = function(){
     p.createCanvas(p.windowWidth, p.windowHeight);
+    p.pixelDensity(2)
     tracer1 = new Tracer();
     tracer2 = new Tracer();
     tracer3 = new Tracer();

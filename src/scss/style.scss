@@ -1006,8 +1006,13 @@ hr {
 
 }
 
-#sketchContainer,
 canvas{
   position: fixed 0;
+  margin: 0;
+  padding: 0;
   z-index: -1;
+}
+
+.sketch-list{
+  list-style: none;
 }

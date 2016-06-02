@@ -1,10 +1,10 @@
-export default (p) => {
+function sketch002(p){
   var t = 0;
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.pixelDensity(2);
     p.background('#050505');
-    p.frameRate(120);
+    p.frameRate(60);
   }
 
   p.draw = function() {
@@ -37,8 +37,7 @@ export default (p) => {
   p.windowResized = function() {
     t = 0;
     p.resizeCanvas(p.windowWidth, p.windowHeight);
-    p.fill('#050505');
-    p.rect(0, 0, p.width, p.height);
+    p.background('#050505');
 
   }
 }
