@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import Sketch from './sketch'
-
 class SketchSingle extends Component {
 
   constructor(props){
     super(props)
   }
 
+  componentWillMount(){
+    document.sketchComponent.remove()
+  }
+
   componentDidMount(){
-    // this.refs.sketchComponent.updateSketch(this.props.params.id)
+    document.sketchComponent.updateSketch(this.props.params.sketchid)
   }
 
   render(){

@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 
 import Header from './header'
 import Footer from './footer'
-import Sketch from './sketch'
 
 class App extends Component {
 
   constructor(props){
     super(props)
+  }
+
+  componentDidMount(){
+    document.sketchComponent.updateSketch()
   }
 
   render(){
@@ -22,7 +25,6 @@ class App extends Component {
           </div>
         </div>
         <Footer />
-        <Sketch ref={"sketchComponent"} />
       </div>
     )
   }
