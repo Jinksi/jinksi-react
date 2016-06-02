@@ -78,4 +78,4 @@ gulp.task('dist-files', ['clean'], function(){
 });
 
 gulp.task('default', ['serve']);
-gulp.task('build', ['sass', 'webpack', 'dist-files']);
+gulp.task('build', ['sass', 'dist-files']);

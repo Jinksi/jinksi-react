@@ -4,9 +4,9 @@
   "description": "ericjinks.com - now in react",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress & gulp serve",
-    "build": "gulp build",
-    "deploy": "gulp build && surge dist"
+    "start": "NODE_ENV=development webpack-dev-server --inline --progress & gulp serve",
+    "build": "NODE_ENV=production gulp build && NODE_ENV=production webpack --progress -p && http-server dist",
+    "deploy": "NODE_ENV=production gulp build && NODE_ENV=production webpack --progress -p && surge dist"
   },
   "author": "",
   "license": "ISC",
