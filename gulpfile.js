@@ -9,7 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var webpack = require('webpack-stream');
 
 var src = {
-  scss: 'src/scss/**/*.scss',
+  scss: 'style/scss/**/*.scss',
   css:  'style'
 };
 
