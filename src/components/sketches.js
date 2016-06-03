@@ -4,6 +4,8 @@ import { padStart } from 'lodash'
 
 import s001 from '../../sketches/001'
 import s002 from '../../sketches/002'
+import s003 from '../../sketches/003'
+import s005 from '../../sketches/005'
 
 export default (props) => {
 
@@ -11,7 +13,7 @@ export default (props) => {
     return sketchData.map((sketch, i) => {
       const seq = padStart(i + 1, 3,'0')
       return (
-        <li key={sketch.title}>
+        <li key={sketch.id}>
           <Link to={`/sketch/${seq}`}>
             {seq + ' ' + sketch.title}
           </Link>
@@ -31,13 +33,23 @@ export const sketchData = [
 
   {
     id: '001',
-    title: 'Perlin Tracer',
+    title: 'Perlin Chaser',
     file: s001
   },
   {
     id:'002',
-    title: 'Perlin Splatter',
+    title: 'Toon trance',
     file: s002
-  }
+  },
+  {
+    id:'003',
+    title: 'Saturn',
+    file: s003
+  },
+  {
+    id:'005',
+    title: 'Perlin Splatter',
+    file: s005
+  },
 
 ]
