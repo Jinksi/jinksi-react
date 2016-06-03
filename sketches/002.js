@@ -1,4 +1,4 @@
-function sketch002(p){
+export default (p) => {
   var t = 0;
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);

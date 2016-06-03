@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router'
 import { padStart } from 'lodash'
 
+import s001 from '../../sketches/001'
+import s002 from '../../sketches/002'
+
 export default (props) => {
 
   const renderLinks = () => {
@@ -29,12 +32,12 @@ export const sketchData = [
   {
     id: '001',
     title: 'Perlin Tracer',
-    file: '001.js'
+    file: s001
   },
   {
     id:'002',
     title: 'Perlin Splatter',
-    file: '002.js'
+    file: s002
   }
 
 ]

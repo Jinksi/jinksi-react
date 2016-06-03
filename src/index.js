@@ -15,7 +15,7 @@ import { sketchData } from './components/sketches'
 document.sketchComponent = {
   current: null,
   all: sketchData.map(sketch => {
-    sketch.file = '/sketches/' + sketch.file
+    // sketch.file = '/sketches/' + sketch.file
     return sketch
   }),
   remove: function(){
@@ -34,14 +34,7 @@ document.sketchComponent = {
       newSketch = this.all[parseInt(sketchid) - 1]
     }
     this.remove()
-    const funcName = 'sketch' + newSketch.id
-    if(!window[funcName]){
-      this.getSketch(newSketch.file, function(response){
-        document.sketchComponent.current = new p5(window[funcName])
-      })
-    } else {
-      document.sketchComponent.current = new p5(window[funcName])
-    }
+    document.sketchComponent.current = new p5(newSketch.file)
   },
   getSketch: function(url, callback){
 

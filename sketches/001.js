@@ -1,4 +1,4 @@
-function sketch001(p){
+export default (p) => {
   var tracer1;
   var tracer2;
   var tracer3;
