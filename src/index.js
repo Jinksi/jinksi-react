@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react'
+import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
 
@@ -14,36 +12,22 @@ import { sketchData } from './components/sketches'
 
 document.sketchComponent = {
   current: null,
-  all: sketchData.map(sketch => {
-    // sketch.file = '/sketches/' + sketch.file
-    return sketch
-  }),
+  all: sketchData,
   remove: function(){
     if(this.current){
       this.current.remove()
+      this.current = null
     }
   },
   updateSketch: function(sketchid){
-
     if(!this.all){ return false }
 
-    let newSketch
-    if(!sketchid){
-      newSketch = this.all[this.all.length - 1]
-    } else {
-      newSketch = this.all[parseInt(sketchid) - 1]
-    }
+    let newSketch = !sketchid ?
+    this.all[this.all.length - 1] :
+    this.all[parseInt(sketchid) - 1]
+
     this.remove()
     document.sketchComponent.current = new p5(newSketch.file)
-  },
-  getSketch: function(url, callback){
-
-    let script = document.createElement('script');
-    script.src = url;
-    script.onload = function () {
-      return callback(script)
-    };
-    document.body.appendChild(script);
   }
 }
 

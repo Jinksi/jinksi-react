@@ -7,10 +7,6 @@ class SketchSingle extends Component {
     super(props)
   }
 
-  componentWillMount(){
-    document.sketchComponent.remove()
-  }
-
   componentDidMount(){
     document.sketchComponent.updateSketch(this.props.params.sketchid)
   }

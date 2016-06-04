@@ -10,7 +10,9 @@ class App extends Component {
   }
 
   componentDidMount(){
-    document.sketchComponent.updateSketch()
+    if(!document.sketchComponent.current){
+      document.sketchComponent.updateSketch()
+    }
   }
 
   render(){
