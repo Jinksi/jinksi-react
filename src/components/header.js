@@ -6,9 +6,9 @@ export default (props) => {
     <header className="header">
       <div className="container row">
         <div className="animated fadeIn four columns vertmid">
-          <h1 className="logo"><Link to="/">
+          <h1 className="logo"><a href="/">
             <span>Eric</span><span>Jinks</span>
-          </Link></h1>
+          </a></h1>
           <div className="info">
             <div className="typed"></div>
           </div>
