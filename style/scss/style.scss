@@ -46,8 +46,7 @@ $primary-color: rgba(255,81,81, 1) !default;
 $secondary-color: lighten($dark-grey, 13.5%) !default;
 $border-color: #bbb !default;
 $link-color: #1eaedb !default;
-$font-color: #cdcdcd !default;
-$font-color: #cdcdcd !default;
+$font-color: white !default;
 $bg-color: #303030;
 // $bg-color: $primary-color;
 // Typography
@@ -189,6 +188,7 @@ body {
   overflow: hidden;
   background-color: $bg-color;
   position: fixed 0;
+  text-shadow: 0 0 1px black;
 }
 
 // Typography
