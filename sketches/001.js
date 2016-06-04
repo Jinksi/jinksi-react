@@ -97,7 +97,7 @@ export default (p) => {
     };
   }
 
-  function windowResized() {
+  p.windowResized = () => {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
     p.background(21);
   }

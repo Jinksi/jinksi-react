@@ -65,7 +65,9 @@ export default (p) => {
 
   p.windowResized = function(){
     p.resizeCanvas(p.windowWidth, p.windowHeight);
-    p.background(21);
+    p.background('#212121');
+    psys = new ParticleSystem()
+
   }
 
 

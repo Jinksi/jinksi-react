@@ -35,7 +35,7 @@
 // Breakpoints
 $bp-larger-than-mobile    : "min-width: 400px" !default;
 $bp-larger-than-phablet   : "min-width: 550px" !default;
-$bp-larger-than-tablet    : "min-width: 750px" !default;
+$bp-larger-than-tablet    : "min-width: 700px" !default;
 $bp-larger-than-desktop   : "min-width: 1000px" !default;
 $bp-larger-than-desktophd : "min-width: 1200px" !default;
 
@@ -186,8 +186,9 @@ body {
   font-weight: 300;
   font-family: $font-family;
   color: $font-color;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: $bg-color;
+  position: fixed 0;
 }
 
 // Typography
@@ -976,8 +977,8 @@ hr {
 }
 
 canvas{
-  @extend .fadeIn;
-  position: fixed 0;
+  position: absolute 0;
+  display: block;
   margin: 0;
   padding: 0;
   z-index: -1;
