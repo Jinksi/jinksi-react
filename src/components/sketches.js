@@ -33,22 +33,22 @@ export const sketchData = [
 
   {
     id: '001',
-    title: 'Perlin Chaser',
+    title: 'perlin chaser',
     file: s001
   },
   {
     id:'002',
-    title: 'Toon trance',
+    title: 'toon trance',
     file: s002
   },
   {
     id:'003',
-    title: 'Saturn',
+    title: 'saturn',
     file: s003
   },
   {
     id:'005',
-    title: 'Perlin Splatter',
+    title: 'perlin Splatter',
     file: s005
   },
 

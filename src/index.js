@@ -13,6 +13,7 @@ import { sketchData } from './components/sketches'
 document.sketchComponent = {
   current: null,
   all: sketchData,
+  currentTitle: null,
   remove: function(){
     if(this.current){
       this.current.remove()
@@ -21,6 +22,11 @@ document.sketchComponent = {
   },
   updateSketch: function(sketchid){
     if(!this.all){ return false }
+    if(!document.getElementById('sketch-title')){
+      let el = document.createElement('div')
+      el.setAttribute('id', 'sketch-title')
+      document.body.appendChild(el)
+    }
 
     let newSketch = !sketchid ?
     this.all[this.all.length - 1] :
@@ -28,6 +34,7 @@ document.sketchComponent = {
 
     this.remove()
     document.sketchComponent.current = new p5(newSketch.file)
+    document.getElementById('sketch-title').innerHTML = newSketch.id + ' ' + newSketch.title.toLowerCase()
   }
 }
 
