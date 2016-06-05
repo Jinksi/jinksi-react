@@ -27,7 +27,7 @@ export default (p) => {
       p.fill('rgba(255, 54, 144, 0.2)');
       p.noStroke();
       p.blendMode(p.ADD);
-      var size = 1;
+      var size = p.random(1, 2);
       p.ellipse(a, b, size, size);
 
     }
