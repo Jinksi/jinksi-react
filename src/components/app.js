@@ -19,7 +19,11 @@ class App extends Component {
   render(){
     return (
       <div>
-        <SketchTitle title={ document.sketchComponent.currentTitle }></SketchTitle>
+        <SketchTitle
+          title={ document.sketchComponent.currentTitle }
+          link={ `/sketch/${document.sketchComponent.currentID}` }
+          fs={ document.body.classList.contains('sketch-fs') }
+          />
         <Header />
         <div className="container row fullheight no-pointer vertmid">
           <div className="eight columns content offset-by-four">
