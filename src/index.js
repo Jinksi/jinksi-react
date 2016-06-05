@@ -68,6 +68,10 @@ document.body.addEventListener('keydown', (e) => {
   if(e.keyIdentifier === 'Right' && sketch.getNext()){
     browserHistory.push({pathname: path + sketch.getNext().id})
   }
+  if(e.keyCode === 27){ // esc key
+    browserHistory.replace({pathname: path + sketch.currentID})
+    sketch.toggleFullScreen()
+  }
 })
 
 render((
