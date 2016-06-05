@@ -30,8 +30,7 @@ document.sketchComponent = {
 
     let newSketch = !sketchid ?
     this.all[this.all.length - 1] :
-    this.all[parseInt(sketchid) - 1]
-
+    this.all.filter(sketch => sketch.id === sketchid)[0]
     this.remove()
     document.sketchComponent.current = new p5(newSketch.file)
     document.getElementById('sketch-title').innerHTML = newSketch.id + ' ' + newSketch.title.toLowerCase()
