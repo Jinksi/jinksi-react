@@ -17,7 +17,7 @@ export default (props) => {
     const prev = sketch.getPrev()
     if(sketch.getPrev()){
       return (
-        <Link to={ `/sketch/${prev.id}` }>
+        <Link to={ `/sketch/${prev.id}` } title="Previous (Left Arrow)">
           <Left />
         </Link>
       )
@@ -27,7 +27,7 @@ export default (props) => {
     const next = sketch.getNext()
     if(sketch.getNext()){
       return (
-        <Link to={ `/sketch/${next.id}` }>
+        <Link to={ `/sketch/${next.id}` } title="Next (Right Arrow)">
           <Right />
         </Link>
       )
@@ -38,6 +38,7 @@ export default (props) => {
     <div id="sketch-title">
       { renderLeft() }
       <Link to={ `/sketch/${sketch.currentID}` }
+        title="Toggle Fullscreen (Esc key)"
         onClick={handleFsClick}>
         <span>{ sketch.currentTitle }</span>
         { props.fs ? <Min /> : <FullScreen /> }
