@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Header from './header'
 import Footer from './footer'
+import SketchTitle from './sketch-title'
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
   render(){
     return (
       <div>
+        <SketchTitle title={ document.sketchComponent.currentTitle }></SketchTitle>
         <Header />
         <div className="container row fullheight no-pointer vertmid">
           <div className="eight columns content offset-by-four">
