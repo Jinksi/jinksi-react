@@ -8,11 +8,10 @@ class SketchSingle extends Component {
   }
 
   componentDidMount(){
-    document.sketchComponent.updateSketch(this.props.params.sketchid)
   }
 
   render(){
-
+    document.sketchComponent.updateSketch(this.props.params.sketchid)
     return (
       <div className="sketch-single">
 

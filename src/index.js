@@ -14,6 +14,7 @@ document.sketchComponent = {
   all: sketchData,
   currentTitle: null,
   currentID: null,
+  currentIndex: null,
   remove: function(){
     if(this.current){
       this.current.remove()
@@ -23,9 +24,11 @@ document.sketchComponent = {
   updateSketch: function(sketchid){
     if(!this.all){ return false }
 
-    let newSketch = !sketchid ?
-    this.all[this.all.length - 1] :
-    this.all.filter(sketch => sketch.id === sketchid)[0]
+    let newSketchIndex = !sketchid ?
+    this.all.length - 1 :
+    this.all.findIndex(sketch => sketch.id === sketchid)
+
+    let newSketch = this.all[newSketchIndex]
 
     if(newSketch.id === this.currentID){ return false }
 
@@ -33,14 +36,40 @@ document.sketchComponent = {
     document.sketchComponent.current = new p5(newSketch.file)
     this.currentTitle = newSketch.id + ' ' + newSketch.title.toLowerCase()
     this.currentID = newSketch.id
+    this.currentIndex = newSketchIndex
     refresh()
   },
   toggleFullScreen: function(){
     document.body.classList.toggle('sketch-fs')
     refresh()
+  },
+  getPrev: function(){
+    if(this.all[this.currentIndex - 1]){
+      return this.all[this.currentIndex - 1]
+    } else {
+      return false
+    }
+  },
+  getNext: function(){
+    if(this.all[this.currentIndex + 1]){
+      return this.all[this.currentIndex + 1]
+    } else {
+      return false
+    }
   }
 }
 
+document.body.addEventListener('keydown', (e) => {
+  const sketch = document.sketchComponent
+  const path = '/sketch/'
+  if(e.keyIdentifier === 'Left' && sketch.getPrev()){
+    browserHistory.push({pathname: path + sketch.getPrev().id})
+  }
+  if(e.keyIdentifier === 'Right' && sketch.getNext()){
+    browserHistory.push({pathname: path + sketch.getNext().id})
+  }
+})
+
 render((
-  <Routes/>
+  <Routes />
 ), document.getElementById('container'))

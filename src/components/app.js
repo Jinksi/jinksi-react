@@ -20,8 +20,7 @@ class App extends Component {
     return (
       <div>
         <SketchTitle
-          title={ document.sketchComponent.currentTitle }
-          link={ `/sketch/${document.sketchComponent.currentID}` }
+          sketchComponent={ document.sketchComponent }
           fs={ document.body.classList.contains('sketch-fs') }
           />
         <Header />

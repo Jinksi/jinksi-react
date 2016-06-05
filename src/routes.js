@@ -9,13 +9,13 @@ import NoMatch from './components/nomatch'
 export default () => {
   return (
     <Router history={browserHistory}>
-    <Route path="/" component={App}>
-    <IndexRoute component={About} />
-    <Route path="sketches" component={Sketches}>
-    </Route>
-    <Route path="sketch/:sketchid" component={SketchSingle} />
-    <Route path="*" component={NoMatch}/>
-    </Route>
+      <Route path="/" component={App}>
+        <IndexRoute component={About} />
+        <Route path="sketches" component={Sketches}>
+        </Route>
+        <Route path="sketch/:sketchid" component={SketchSingle} />
+        <Route path="*" component={NoMatch}/>
+      </Route>
     </Router>
   )
 }
