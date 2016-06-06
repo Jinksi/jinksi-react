@@ -3,8 +3,6 @@ import { Link } from 'react-router'
 
 import FullScreen from 'react-icons/lib/io/arrow-expand'
 import Min from 'react-icons/lib/io/arrow-shrink'
-import Left from 'react-icons/lib/fa/angle-left'
-import Right from 'react-icons/lib/fa/angle-right'
 
 export default (props) => {
 
@@ -18,7 +16,7 @@ export default (props) => {
     if(sketch.getPrev()){
       return (
         <Link to={ `/sketch/${prev.id}` } title="Previous (Left Arrow)">
-          <Left />
+          <span>&larr;</span>
         </Link>
       )
     }
@@ -28,7 +26,7 @@ export default (props) => {
     if(sketch.getNext()){
       return (
         <Link to={ `/sketch/${next.id}` } title="Next (Right Arrow)">
-          <Right />
+          <span>&rarr;</span>
         </Link>
       )
     }

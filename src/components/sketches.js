@@ -25,6 +25,10 @@ export default (props) => {
   return (
     <div className="animated fadeIn">
       <ul className="sketch-list">{renderLinks()}</ul>
+      <p>
+        Use the &larr; and &rarr; arrow keys to navigate sketches. <br/>
+        Use the <b>ESC</b> key to toggle fullscreen.
+      </p>
     </div>
   )
 }
