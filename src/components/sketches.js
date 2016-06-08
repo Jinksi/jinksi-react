@@ -27,8 +27,11 @@ export default (props) => {
     <div className="animated fadeIn">
       <ul className="sketch-list">{renderLinks()}</ul>
       <p>
-        Use the &larr; and &rarr; arrow keys to navigate sketches. <br/>
-        Use the <b>ESC</b> key to toggle fullscreen.
+        these sketches are created with the javascript library, p5js.
+      </p>
+      <p>
+        use the &larr; and &rarr; arrow keys to navigate sketches.<br/>
+        use the <b>esc</b> key to toggle fullscreen.
       </p>
     </div>
   )

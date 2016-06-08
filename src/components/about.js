@@ -3,7 +3,9 @@ import React from 'react';
 export default (props) => {
   return (
     <div className="animated fadeIn">
-      <p>Hello. I am an audio & visual artist from the Gold Coast, Australia.</p>
+      <p>
+        i create audio-visual art with code, <br/>inspired by creative coding & generative art.
+      </p>
     </div>
   )
 }
