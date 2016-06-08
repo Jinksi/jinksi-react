@@ -10,7 +10,7 @@ export default () => {
   return (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={About} />
+        <Route path="about" component={About} />
         <Route path="sketches" component={Sketches}>
         </Route>
         <Route path="sketch/:sketchid" component={SketchSingle} />
