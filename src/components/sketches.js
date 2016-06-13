@@ -8,6 +8,7 @@ import s003 from '../../sketches/003'
 import s005 from '../../sketches/005'
 import s006 from '../../sketches/006'
 import s007 from '../../sketches/007'
+import s008 from '../../sketches/008'
 
 export default (props) => {
 
@@ -68,6 +69,11 @@ export const sketchData = [
     id:'007',
     title: 'beltflow',
     file: s007
+  },
+  {
+    id:'008',
+    title: 'seek',
+    file: s008
   },
 
 ]
