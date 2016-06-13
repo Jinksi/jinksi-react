@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router';
-import Twitter from 'react-icons/lib/io/social-twitter';
-import Github from 'react-icons/lib/io/social-github';
-import Envelope from 'react-icons/lib/io/ios-email';
-import Instagram from 'react-icons/lib/io/social-instagram';
+import React from 'react'
+import { Link } from 'react-router'
+import Twitter from 'react-icons/lib/io/social-twitter'
+import Github from 'react-icons/lib/io/social-github'
+import Envelope from 'react-icons/lib/io/ios-email'
+import Instagram from 'react-icons/lib/io/social-instagram'
 
 class Question extends React.Component {
     render() {

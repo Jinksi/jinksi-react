@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
 import App from './components/app'
 import About from './components/about'
