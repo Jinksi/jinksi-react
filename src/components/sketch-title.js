@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router'
 
 import FullScreen from 'react-icons/lib/io/arrow-expand'

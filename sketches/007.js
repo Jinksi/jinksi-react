@@ -73,7 +73,7 @@ export default (p) => {
         array[i] = []
       }
       return array
-    };
+    }
 
     this.init = () => {
       this.field = null
@@ -117,17 +117,17 @@ export default (p) => {
       // Call vector heading function to get direction (note that pointing to the right is a heading of 0) and rotate
       p.rotate(v.heading())
       //  calc mag of vector and scale
-      let len = v.mag() * scale;
+      let len = v.mag() * scale
       // draw line
-      p.line(0, 0, len, 0);
+      p.line(0, 0, len, 0)
       p.pop()
     }
 
     // instructions to Vehicle
     this.lookup = (lookup) => {
-      let col = Math.floor(p.constrain(lookup.x / this.resolution, 0, this.cols - 1));
-      let row = Math.floor(p.constrain(lookup.y / this.resolution, 0, this.rows - 1));
-      return this.field[col][row].copy();
+      let col = Math.floor(p.constrain(lookup.x / this.resolution, 0, this.cols - 1))
+      let row = Math.floor(p.constrain(lookup.y / this.resolution, 0, this.rows - 1))
+      return this.field[col][row].copy()
     }
   }
 
