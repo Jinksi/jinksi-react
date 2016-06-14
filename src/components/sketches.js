@@ -9,6 +9,7 @@ import s005 from '../../sketches/005'
 import s006 from '../../sketches/006'
 import s007 from '../../sketches/007'
 import s008 from '../../sketches/008'
+import s009 from '../../sketches/009'
 
 export default (props) => {
 
@@ -74,6 +75,11 @@ export const sketchData = [
     id:'008',
     title: 'seek',
     file: s008
+  },
+  {
+    id:'009',
+    title: 'gaunt',
+    file: s009
   },
 
 ]
