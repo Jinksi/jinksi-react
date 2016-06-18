@@ -12,6 +12,7 @@ import s007 from '../../sketches/007'
 import s008 from '../../sketches/008'
 import s009 from '../../sketches/009'
 import s010 from '../../sketches/010'
+import s011 from '../../sketches/011'
 
 export default (props) => {
 
@@ -88,6 +89,12 @@ export const sketchData = [
     id:'010',
     title: 'duophnic',
     file: s010
+  },
+  {
+    id:'011',
+    title: 'chime',
+    file: s011,
+    audio: true
   },
 
 ]

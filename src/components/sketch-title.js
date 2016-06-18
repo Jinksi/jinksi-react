@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 import FullScreen from 'react-icons/lib/io/arrow-expand'
 import Min from 'react-icons/lib/io/arrow-shrink'
+import VMute from 'react-icons/lib/io/android-volume-off'
+import VUp from 'react-icons/lib/io/android-volume-up'
 
-export default (props) => {
 
-  const sketch = props.sketchComponent
+export default class SketchTitle extends Component {
 
-  function handleFsClick(e){
-    sketch.toggleFullScreen()
+  constructor(props){
+    super(props)
+    this.sketch = this.props.sketchComponent
   }
-  function renderLeft(){
-    const prev = sketch.getPrev()
-    if(sketch.getPrev()){
+
+  handleFsClick(e){
+    this.props.sketchComponent.toggleFullScreen()
+  }
+
+  renderLeft(){
+    const prev = this.sketch.getPrev()
+    if(this.sketch.getPrev()){
       return (
         <Link to={ `/sketch/${prev.id}` } title="Previous (Left Arrow)">
           <span>&larr;</span>
@@ -21,9 +28,10 @@ export default (props) => {
       )
     }
   }
-  function renderRight(){
-    const next = sketch.getNext()
-    if(sketch.getNext()){
+
+  renderRight(){
+    const next = this.sketch.getNext()
+    if(next){
       return (
         <Link to={ `/sketch/${next.id}` } title="Next (Right Arrow)">
           <span>&rarr;</span>
@@ -32,16 +40,45 @@ export default (props) => {
     }
   }
 
-  return (
-    <div id="sketch-title">
-      { renderLeft() }
-      <Link to={ `/sketch/${sketch.currentID}` }
-        title="Toggle Fullscreen (Esc key)"
-        onClick={handleFsClick}>
-        <span>{ sketch.currentTitle }</span>
-        { props.fs ? <Min /> : <FullScreen /> }
-      </Link>
-      { renderRight() }
-    </div>
-  )
+  renderVol(){
+    if(this.sketch.currentAudio){
+      let vol = p5.soundOut.output.gain.value ? 1 : 0
+      if(vol){
+        return (
+          <a href="#" onClick={this.muteToggle.bind(this)}>
+            <VMute />
+          </a>
+        )
+      } else {
+        return (
+          <a href="#" onClick={this.muteToggle.bind(this)}>
+            <VUp />
+          </a>
+        )
+      }
+    }
+  }
+
+  muteToggle(e){
+    e.preventDefault()
+    let mute = p5.soundOut.output.gain.value ? 0 : 1
+    p5.soundOut.output.gain.value = mute
+    this.forceUpdate()
+  }
+
+  render(){
+    return (
+      <div id="sketch-title">
+        { this.renderLeft() }
+        <Link to={ `/sketch/${ this.sketch.currentID }` }
+          title="Toggle Fullscreen (Esc key)"
+          onClick={ this.handleFsClick.bind(this) }>
+          <span>{ this.sketch.currentTitle }</span>
+          { this.props.fs ? <Min /> : <FullScreen /> }
+        </Link>
+        { this.renderVol() }
+        { this.renderRight() }
+      </div>
+    )
+  }
 }

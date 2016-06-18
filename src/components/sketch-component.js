@@ -11,6 +11,7 @@ export default {
   currentTitle: null,
   currentID: null,
   currentIndex: null,
+  currentAudio: null,
   remove: function(){
     if(this.current){
       this.current.remove()
@@ -32,6 +33,7 @@ export default {
     document.sketchComponent.current = new p5(newSketch.file)
     this.currentTitle = newSketch.id + ' ' + newSketch.title.toLowerCase()
     this.currentID = newSketch.id
+    this.currentAudio = newSketch.audio
     this.currentIndex = newSketchIndex
     refresh()
   },
