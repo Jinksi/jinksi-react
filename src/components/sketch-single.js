@@ -16,9 +16,17 @@ class SketchSingle extends Component {
     document.sketchComponent.updateSketch(this.props.params.sketchid)
     const sketch = sketchData.find(sketch => sketch.id === this.props.params.sketchid)
     const title = `${sketch.id} ${sketch.title} | Eric Jinks`
+    const image = sketch.image
+    let meta = []
+    meta.push({'property': 'og:title', 'content': title})
+    if(image) meta.push({'property': 'og:image', 'content': image})
+
     return (
       <div className="sketch-single">
-        <Helmet title={title} />
+        <Helmet
+          title={title}
+          meta={meta}
+          />
       </div>
     )
   }

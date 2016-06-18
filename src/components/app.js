@@ -22,6 +22,9 @@ class App extends Component {
       <div>
         <Helmet
           title="Eric Jinks"
+          meta={[
+            {'property': 'og:title', 'content': 'Eric Jinks'}
+          ]}
         />
         <SketchTitle
           sketchComponent={ document.sketchComponent }
