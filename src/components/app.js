@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 
 import Header from './header'
 import Footer from './footer'
@@ -19,6 +20,9 @@ class App extends Component {
   render(){
     return (
       <div>
+        <Helmet
+          title="Eric Jinks"
+        />
         <SketchTitle
           sketchComponent={ document.sketchComponent }
           fs={ document.body.classList.contains('sketch-fs') }

@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { Link } from 'react-router'
 import { padStart } from 'lodash'
 
@@ -28,6 +29,7 @@ export default (props) => {
 
   return (
     <div className="animated fadeIn">
+      <Helmet title="Sketches | Eric Jinks" />
       <ul className="sketch-list">{renderLinks()}</ul>
       <p>
         these sketches are created with the javascript library, p5js.
