@@ -13,6 +13,7 @@ import s008 from '../../sketches/008'
 import s009 from '../../sketches/009'
 import s010 from '../../sketches/010'
 import s011 from '../../sketches/011'
+import s012 from '../../sketches/012'
 
 export default (props) => {
 
@@ -95,6 +96,11 @@ export const sketchData = [
     title: 'chime',
     file: s011,
     audio: true
+  },
+  {
+    id:'012',
+    title: 'search',
+    file: s012
   },
 
 ]
