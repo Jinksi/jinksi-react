@@ -14,6 +14,7 @@ import s009 from '../../sketches/009'
 import s010 from '../../sketches/010'
 import s011 from '../../sketches/011'
 import s012 from '../../sketches/012'
+import s013 from '../../sketches/013'
 
 export default (props) => {
 
@@ -102,5 +103,13 @@ export const sketchData = [
     title: 'search',
     file: s012
   },
+
+  // TODO: work on WEBGL fix
+  // {
+  //   id:'013',
+  //   title: 'swept',
+  //   file: s013
+  // },
+
 
 ]
