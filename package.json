@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --inline --progress & gulp serve",
-    "build": "NODE_ENV=production gulp build && NODE_ENV=production webpack --progress -p && http-server dist",
-    "deploy": "NODE_ENV=production gulp build && NODE_ENV=production webpack --progress -p && surge dist"
+    "build": "NODE_ENV=production gulp build && NODE_ENV=production webpack --progress -p",
+    "deploy": "npm run build && rsync -avzh dist/ evps:/var/www/ericjinks.com/html "
   },
   "author": "",
   "license": "ISC",
