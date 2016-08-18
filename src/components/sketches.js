@@ -16,6 +16,7 @@ import s011 from '../../sketches/011'
 import s012 from '../../sketches/012'
 import s013 from '../../sketches/013'
 import s014 from '../../sketches/014'
+import s015 from '../../sketches/015'
 
 export default (props) => {
 
@@ -116,6 +117,11 @@ export const sketchData = [
     id:'014',
     title: 'eqosystem',
     file: s014
+  },
+  {
+    id:'015',
+    title: 'phyllo',
+    file: s015
   },
 
 
