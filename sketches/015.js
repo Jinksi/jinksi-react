@@ -20,7 +20,11 @@ export default (p) => {
       this.y = this.r * p.sin(this.a) + p.height/2
       p.fill(this.col)
       p.noStroke()
-      p.ellipse(this.x, this.y, 4 - (n * (0.005 * c / 15)))
+      if(mode){
+        p.ellipse(this.x, this.y, p.map(p.sin(p.millis() / 10 + n*n), 0, 1, 0, 4))
+      } else {
+        p.ellipse(this.x, this.y, 4 - (n * (0.005 * c / 15)))
+      }
       this.xoff += this.inc
     }
   }
