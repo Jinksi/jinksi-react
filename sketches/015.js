@@ -5,6 +5,8 @@ export default (p) => {
   let mode = 1
   let dots = []
   let dotCount = 1000
+  let angle = 137.5
+  let blur = 75
 
   const Dot = function(n, c){
     this.n = n
@@ -14,7 +16,7 @@ export default (p) => {
     this.render = () => {
       this.c = c
       // this.a = (this.n * 137.5) + (p.millis() / 100) * p.sin(dotCount / n) * 200
-      this.a = (this.n * 137.5) + p.map(p.noise(this.xoff), 0, 1, -10, 10)
+      this.a = (this.n * angle) + p.map(p.noise(this.xoff), 0, 1, -10, 10)
       this.r = this.c * p.sqrt(this.n)
       this.x = this.r * p.cos(this.a) + p.width/2
       this.y = this.r * p.sin(this.a) + p.height/2
@@ -47,8 +49,10 @@ export default (p) => {
   }
 
   p.draw = () => {
-    p.background(21, 75)
+    p.background(21, blur)
     dots.map(dot => dot.render())
+    angle = p.map(p.width - p.mouseX, 0, p.width, 137.3, 137.5)
+    blur = p.map(p.height - p.mouseY, 0, p.height, 150, 10)
   }
 
   p.mouseClicked = () => {
