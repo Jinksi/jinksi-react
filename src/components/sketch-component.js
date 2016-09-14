@@ -1,5 +1,10 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import { sketchData } from './sketches'
 import { browserHistory } from 'react-router'
+
+const AFRAMEcontainer = document.querySelector('#aframe-container')
 
 function refresh(){
   browserHistory.setState({})
@@ -29,12 +34,22 @@ export default {
 
     if(newSketch.id === this.currentID){ return false }
 
+    ReactDOM.unmountComponentAtNode(AFRAMEcontainer)
+
     this.remove()
-    document.sketchComponent.current = new p5(newSketch.file)
+
     this.currentTitle = newSketch.id + ' ' + newSketch.title.toLowerCase()
     this.currentID = newSketch.id
     this.currentAudio = newSketch.audio
     this.currentIndex = newSketchIndex
+
+    if(newSketch.type === 'react-component'){
+      // html component (aframe)
+      ReactDOM.render(<newSketch.file />, AFRAMEcontainer)
+    } else {
+      document.sketchComponent.current = new p5(newSketch.file)
+    }
+
     refresh()
   },
   toggleFullScreen: function(){

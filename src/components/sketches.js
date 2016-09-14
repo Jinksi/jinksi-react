@@ -18,6 +18,7 @@ import s013 from '../../sketches/013'
 import s014 from '../../sketches/014'
 import s015 from '../../sketches/015'
 import s016 from '../../sketches/016'
+import s017 from '../../sketches/017'
 
 export default (props) => {
 
@@ -128,6 +129,12 @@ export const sketchData = [
     id:'016',
     title: 'shiw',
     file: s016
+  },
+  {
+    id:'017',
+    title: 'aframe',
+    file: s017,
+    type: 'react-component'
   },
 
 

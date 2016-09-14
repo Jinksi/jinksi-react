@@ -46,7 +46,7 @@ $secondary-color: lighten($dark-grey, 13.5%) !default;
 $border-color: #bbb !default;
 $link-color: #1eaedb !default;
 $font-color: white !default;
-$bg-color: #303030;
+$bg-color: #212121;
 // $bg-color: $primary-color;
 // Typography
 $font-family: "Josefin sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
@@ -188,6 +188,12 @@ body {
   background-color: $bg-color;
   position: fixed 0;
   text-shadow: 0 0 1px black;
+}
+
+#aframe-container{
+  position: fixed 0;
+  bottom: 57px;
+  z-index: -1;
 }
 
 // Typography
