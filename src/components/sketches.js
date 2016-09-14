@@ -39,11 +39,14 @@ export default (props) => {
       <Helmet title="Sketches | Eric Jinks" />
       <ul className="sketch-list">{renderLinks()}</ul>
       <p>
-        these sketches are created with the javascript library, p5js.
+        these sketches are created with javascript using either <a href="https://p5js.org/" target="_blank">p5js</a>, <a href="http://threejs.org/" target="_blank">threejs</a> or <a href="https://aframe.io/" target="_blank">a-frame</a> (for the vr sketches).
       </p>
       <p>
         use the &larr; and &rarr; arrow keys to navigate sketches.<br/>
         use the <b>esc</b> key to toggle fullscreen.
+      </p>
+      <p>
+        click the <b>vr</b> icon on webvr sketches to view fullscreen in 360°.
       </p>
     </div>
   )
