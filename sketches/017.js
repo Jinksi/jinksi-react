@@ -19,12 +19,21 @@ export default class s017 extends Component {
     function renderEntities(){
       let ents = []
       const range = 1
+      let col = 'white'
       for(let i = 0; i < 200; i++){
+        let colRand = THREE.Math.randFloat(0,1)
+        if(colRand < .333){
+          col = 'coral'
+        } else if (colRand < .666) {
+          col = 'spiro'
+        } else {
+          col = 'white'
+        }
         ents.push(
           <a-entity
           key={`vehicle-${i}`}
           position={`${THREE.Math.randFloat(-range, range)} ${THREE.Math.randFloat(-range, range)} ${THREE.Math.randFloat(-range, range)}`}
-          mixin="sphere firefly white grow"></a-entity>
+          mixin={`sphere firefly grow ${col}`}></a-entity>
         )
       }
       return ents
@@ -35,7 +44,9 @@ export default class s017 extends Component {
       <a-entity camera look-controls universal-controls="movementEnabled: false; touchControls: false"></a-entity>
       <a-mixin id="sphere" geometry="primitive: sphere; radius: 0.03"></a-mixin>
       <a-mixin id="firefly" s017vehicle></a-mixin>
-      <a-mixin id="white" material="shader: flat"></a-mixin>
+      <a-mixin id="white" material="color: white; shader: flat"></a-mixin>
+      <a-mixin id="spiro" material="color: #26C0F7; shader: flat"></a-mixin>
+      <a-mixin id="coral" material="color: #FE5050; shader: flat"></a-mixin>
       <a-mixin id="flash" s017flash="0.5"></a-mixin>
       <a-mixin id="grow" s017grow="0.5"></a-mixin>
       { renderEntities() }
