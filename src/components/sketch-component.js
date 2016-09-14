@@ -55,7 +55,11 @@ export default {
     refresh()
   },
   toggleFullScreen: function(){
-    document.body.classList.toggle('sketch-fs')
+    if(this.currentType === 'aframe'){
+      document.querySelector('a-scene').enterVR()
+    } else {
+      document.body.classList.toggle('sketch-fs')
+    }
     refresh()
   },
   getPrev: function(){
