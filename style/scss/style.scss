@@ -74,6 +74,10 @@ $global-radius: 4px !default;
 // Grid
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
+#container{
+  height: 100%;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -81,6 +85,7 @@ $global-radius: 4px !default;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .column,
@@ -736,7 +741,7 @@ hr {
   // mix-blend-mode:screen;
 }
 .fullheight{
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
 }
 .header{
@@ -938,13 +943,14 @@ hr {
   padding: 100px 0;
   pointer-events: all;
   z-index: 1;
+  max-height: 100%;
+  overflow-y: scroll;
   img{
     display: block;
     width: auto;
     max-width: 100%;
     min-width: 0;
     height: auto;
-
   }
 }
 .post-list{
