@@ -4,31 +4,50 @@ import AFRAME from 'aframe'
 import 'aframe-entity-generator-component'
 import extras from 'aframe-extras'
 
-extras.controls.registerAll()
+export default class s017 extends Component {
 
-AFRAME.registerComponent('gravity', {
-  schema: {
-    type: 'int',
-    default: 1
-  },
-  init: function() {
-    if (!this.el.object3D.vel)
-      this.el.object3D.vel = new THREE  .Vector3(0, 0, 0)
-    if (!this.el.object3D.acc)
-      this.el.object3D.acc = new THREE.Vector3(0, 0, 0)
-  },
-
-  update: function() {
-    this.el.object3D.gravity = this.data
-  },
-  tick: function() {
-    this.el.object3D.acc.set(0, -this.el.object3D.gravity * 0.0001, 0)
-    this.el.object3D.vel.add(this.el.object3D.acc)
-    this.el.object3D.position.add(this.el.object3D.vel)
-    this.el.object3D.acc.set(0, 0, 0)
+  constructor(props){
+    super(props)
   }
-})
-AFRAME.registerComponent('flash', {
+  componentDidMount(){
+
+  }
+  render(){
+
+    extras.controls.registerAll()
+
+    function renderEntities(){
+      let ents = []
+      const range = 1
+      for(let i = 0; i < 200; i++){
+        ents.push(
+          <a-entity
+          key={`vehicle-${i}`}
+          position={`${THREE.Math.randFloat(-range, range)} ${THREE.Math.randFloat(-range, range)} ${THREE.Math.randFloat(-range, range)}`}
+          mixin="sphere firefly white grow"></a-entity>
+        )
+      }
+      return ents
+    }
+
+    return(
+      <a-scene vr-mode-ui="enabled: false" id="scene">
+      <a-entity camera look-controls universal-controls="movementEnabled: false; touchControls: false"></a-entity>
+      <a-mixin id="sphere" geometry="primitive: sphere; radius: 0.03"></a-mixin>
+      <a-mixin id="firefly" s017vehicle></a-mixin>
+      <a-mixin id="white" material="shader: flat"></a-mixin>
+      <a-mixin id="flash" s017flash="0.5"></a-mixin>
+      <a-mixin id="grow" s017grow="0.5"></a-mixin>
+      { renderEntities() }
+
+      <a-sky color="#111"></a-sky>
+      </a-scene>
+
+    )
+  }
+}
+
+AFRAME.registerComponent('s017flash', {
   schema: {
     type: 'float',
     default: 1
@@ -43,7 +62,7 @@ AFRAME.registerComponent('flash', {
     )
   }
 })
-AFRAME.registerComponent('grow', {
+AFRAME.registerComponent('s017grow', {
   schema: {
     type: 'float',
     default: 1
@@ -59,35 +78,8 @@ AFRAME.registerComponent('grow', {
     this.el.object3D.scale.clampLength(0, 1)
   }
 })
-AFRAME.registerComponent('wind', {
-  schema: {
-    type: 'int',
-    default: 1
-  },
-  init: function() {
-    if (!this.el.object3D.vel)
-      this.el.object3D.vel = new THREE.Vector3(0, 0, 0)
-    if (!this.el.object3D.acc)
-      this.el.object3D.acc = new THREE.Vector3(0, 0, 0)
-  },
 
-  update: function() {
-    this.el.object3D.wind = this.data * 0.001
-  },
-  tick: function() {
-    var wind = this.el.object3D.wind
-    this.el.object3D.acc.set(
-      THREE.Math.randFloat(-wind, wind),
-      THREE.Math.randFloat(-wind, wind),
-      THREE.Math.randFloat(-wind, wind)
-    )
-    this.el.object3D.vel.add(this.el.object3D.acc)
-    this.el.object3D.position.add(this.el.object3D.vel)
-    this.el.object3D.acc.set(0, 0, 0)
-  }
-})
-
-AFRAME.registerComponent('vehicle', {
+AFRAME.registerComponent('s017vehicle', {
   schema: {
     type: 'boolean'
   },
@@ -181,21 +173,3 @@ AFRAME.registerComponent('vehicle', {
   }
 
 })
-
-export default (props) => {
-  return(
-    <a-scene id="scene">
-      <a-entity camera look-controls universal-controls="movementEnabled: false; touchControls: false"></a-entity>
-      <a-mixin id="sphere" geometry="primitive: sphere; radius: 0.03"></a-mixin>
-      <a-mixin id="random-pos" random-spherical-position="lengthX: 180; lengthY: 180; radius: 2"></a-mixin>
-      <a-mixin id="firefly" vehicle></a-mixin>
-      <a-mixin id="white" material="shader: flat"></a-mixin>
-      <a-mixin id="flash" flash="0.5"></a-mixin>
-      <a-mixin id="grow" grow="0.5"></a-mixin>
-      <a-entity id="awesome" entity-generator="mixin: sphere random-pos firefly white grow lantern; num: 200;"></a-entity>
-
-      <a-sky color="#111"></a-sky>
-    </a-scene>
-
-  )
-}

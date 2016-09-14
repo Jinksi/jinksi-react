@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import { sketchData } from './sketches'
 import { browserHistory } from 'react-router'
 
+import { sketchData } from './sketches'
+
 const AFRAMEcontainer = document.querySelector('#aframe-container')
+const AFRAMEbutton = document.querySelector('#aframe-button')
 
 function refresh(){
   browserHistory.setState({})
@@ -17,6 +18,7 @@ export default {
   currentID: null,
   currentIndex: null,
   currentAudio: null,
+  currentType: null,
   remove: function(){
     if(this.current){
       this.current.remove()
@@ -42,9 +44,9 @@ export default {
     this.currentID = newSketch.id
     this.currentAudio = newSketch.audio
     this.currentIndex = newSketchIndex
+    this.currentType = newSketch.type
 
-    if(newSketch.type === 'react-component'){
-      // html component (aframe)
+    if(this.currentType === 'aframe'){
       ReactDOM.render(<newSketch.file />, AFRAMEcontainer)
     } else {
       document.sketchComponent.current = new p5(newSketch.file)

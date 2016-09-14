@@ -5,6 +5,7 @@ import FullScreen from 'react-icons/lib/io/arrow-expand'
 import Min from 'react-icons/lib/io/arrow-shrink'
 import VMute from 'react-icons/lib/io/android-volume-off'
 import VUp from 'react-icons/lib/io/android-volume-up'
+import EnterVR from './enterVR'
 
 
 export default class SketchTitle extends Component {
@@ -58,6 +59,11 @@ export default class SketchTitle extends Component {
       }
     }
   }
+  renderVRButton(){
+    if(this.sketch.currentType === 'aframe'){
+      return <EnterVR />
+    }
+  }
 
   muteToggle(e){
     e.preventDefault()
@@ -69,6 +75,7 @@ export default class SketchTitle extends Component {
   render(){
     return (
       <div id="sketch-title">
+        { this.renderVRButton() }
         { this.renderLeft() }
         <Link to={ `/sketch/${ this.sketch.currentID }` }
           title="Toggle Fullscreen (Esc key)"

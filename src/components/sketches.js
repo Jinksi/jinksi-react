@@ -134,7 +134,7 @@ export const sketchData = [
     id:'017',
     title: 'aframe',
     file: s017,
-    type: 'react-component'
+    type: 'aframe'
   },
 
 
