@@ -73,6 +73,9 @@ export default class SketchTitle extends Component {
   }
 
   render(){
+    if(this.props.vr){
+      return <div></div>
+    }
     return (
       <div id="sketch-title">
         { this.renderVRButton() }

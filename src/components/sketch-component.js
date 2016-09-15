@@ -48,6 +48,16 @@ export default {
 
     if(this.currentType === 'aframe'){
       ReactDOM.render(<newSketch.file />, AFRAMEcontainer)
+      document.querySelector('a-scene').addEventListener('enter-vr', () => {
+        document.body.classList.add('sketch-vr')
+        document.body.classList.add('sketch-fs')
+        refresh()
+      })
+      document.querySelector('a-scene').addEventListener('exit-vr', () => {
+        document.body.classList.remove('sketch-vr')
+        document.body.classList.remove('sketch-fs')
+        refresh()
+      })
     } else {
       window.sketchComponent.current = new p5(newSketch.file)
       window.sketchComponent.current.resizeCanvas(window.innerWidth, window.innerHeight)
@@ -56,8 +66,14 @@ export default {
     refresh()
   },
   toggleFullScreen: function(){
+    let scene
     if(this.currentType === 'aframe'){
-      document.querySelector('a-scene').enterVR()
+      scene = document.querySelector('a-scene')
+      if(document.body.classList.contains('sketch-vr')) {
+        scene.exitVR()
+      } else {
+        scene.enterVR()
+      }
     } else {
       document.body.classList.toggle('sketch-fs')
     }
@@ -90,6 +106,6 @@ document.body.addEventListener('keydown', (e) => {
   }
   if(e.keyCode === 27){ // esc key
     browserHistory.replace({pathname: path + sketch.currentID})
-    sketch.toggleFullScreen()
+    if(sketch.currentType !== 'aframe') sketch.toggleFullScreen()
   }
 })

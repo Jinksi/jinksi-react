@@ -6,8 +6,8 @@ export default class enterVR extends Component{
   }
   onPress(){
     if(AFRAME){
-      const scene = document.querySelector('a-scene')
-      return scene.enterVR()
+      const sketchComponent = window.sketchComponent
+      return sketchComponent.toggleFullScreen()
     }
     return false
   }

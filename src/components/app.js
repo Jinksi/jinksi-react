@@ -29,6 +29,7 @@ class App extends Component {
         <SketchTitle
           sketchComponent={ window.sketchComponent }
           fs={ document.body.classList.contains('sketch-fs') }
+          vr={ document.body.classList.contains('sketch-vr') }
           />
         <Header />
         <div className="container row fullheight no-pointer vertmid">
