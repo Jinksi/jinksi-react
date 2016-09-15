@@ -49,7 +49,8 @@ export default {
     if(this.currentType === 'aframe'){
       ReactDOM.render(<newSketch.file />, AFRAMEcontainer)
     } else {
-      document.sketchComponent.current = new p5(newSketch.file)
+      window.sketchComponent.current = new p5(newSketch.file)
+      window.sketchComponent.current.resizeCanvas(window.innerWidth, window.innerHeight)
     }
 
     refresh()
@@ -79,7 +80,7 @@ export default {
 }
 
 document.body.addEventListener('keydown', (e) => {
-  const sketch = document.sketchComponent
+  const sketch = window.sketchComponent
   const path = '/sketch/'
   if(e.keyIdentifier === 'Left' && sketch.getPrev()){
     browserHistory.push({pathname: path + sketch.getPrev().id})

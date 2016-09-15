@@ -5,7 +5,7 @@ import { sketchData } from './components/sketches'
 import Routes from './routes'
 import SketchComponent from './components/sketch-component'
 
-document.sketchComponent = SketchComponent
+window.sketchComponent = SketchComponent
 
 render((
   <Routes />

@@ -13,7 +13,7 @@ class SketchSingle extends Component {
   }
 
   render(){
-    document.sketchComponent.updateSketch(this.props.params.sketchid)
+    window.sketchComponent.updateSketch(this.props.params.sketchid)
     const sketch = sketchData.find(sketch => sketch.id === this.props.params.sketchid)
     const title = `${sketch.id} ${sketch.title} | Eric Jinks`
     const image = sketch.image

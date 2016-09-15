@@ -12,8 +12,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    if(!document.sketchComponent.current){
-      document.sketchComponent.updateSketch()
+    if(!window.sketchComponent.current){
+      window.sketchComponent.updateSketch()
     }
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
           ]}
         />
         <SketchTitle
-          sketchComponent={ document.sketchComponent }
+          sketchComponent={ window.sketchComponent }
           fs={ document.body.classList.contains('sketch-fs') }
           />
         <Header />
