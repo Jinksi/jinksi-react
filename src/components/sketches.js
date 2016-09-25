@@ -19,6 +19,7 @@ import s014 from '../../sketches/014'
 import s015 from '../../sketches/015'
 import s016 from '../../sketches/016'
 import s017 from '../../sketches/017'
+import s018 from '../../sketches/018'
 
 export default (props) => {
 
@@ -138,6 +139,11 @@ export const sketchData = [
     title: 'aframe',
     file: s017,
     type: 'aframe'
+  },
+  {
+    id:'018',
+    title: 'bioluminescence i',
+    file: s018
   },
 
 
