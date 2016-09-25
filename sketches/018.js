@@ -1,6 +1,7 @@
 const firebase = require('firebase')
 const moment = require('moment')
 const _each = require('lodash/each')
+const _remove = require('lodash/remove')
 
 // Initialize Firebase
 var config = {
@@ -18,7 +19,7 @@ const dbPlayers = firebase.database().ref().child('players')
 export default (p) => {
 
   let vehicles = []
-  let vehicleCount = 5
+  let vehicleCount = 7
   let players = {}
   let vehicleGroups = {}
   let me = {
@@ -53,21 +54,28 @@ export default (p) => {
       time: player.time,
       colour: player.colour
     }
-    console.log(player.time);
     return dbPlayers.update(updates)
   }
 
   function kickPlayers(players){
     console.log('checking afk players')
     const now = moment()
+    let kicked = []
     _each(players, (player, playerKey) => {
       const playerTime = player.time
       const diff = now.diff(moment(playerTime))
       if(!player.time || !player.colour || diff > 60000){
         console.log(`kicking ${playerKey}`);
         dbPlayers.child(playerKey).remove()
+        kicked.push(playerKey)
       }
     })
+    kicked.map(playerKey => {
+      _remove(vehicles, vehicle => {
+        return vehicle.key === playerKey
+      })
+    })
+
   }
 
   setInterval(() => kickPlayers(players), 10000)
@@ -85,7 +93,8 @@ export default (p) => {
   }
 
 
-  var Vehicle = function(x, y, seekVector, colour){
+  var Vehicle = function(x, y, seekVector, colour, key){
+    this.key = key
     this.seekVector = seekVector
     this.prevPos = p.createVector(x,y)
     this.pos = p.createVector(x,y)
@@ -181,7 +190,7 @@ export default (p) => {
 
   }
 
-  var VehicleGroup = function(vehicleCount, player){
+  var VehicleGroup = function(vehicleCount, player, playerKey){
 
     this.seekVector
 
@@ -199,7 +208,8 @@ export default (p) => {
             p.width/2 + p.random(-5, 5),
             p.height/2 + p.random(-5, 5),
             this.seekVector,
-            player.colour
+            player.colour,
+            playerKey
           )
         )
       }
@@ -228,7 +238,7 @@ export default (p) => {
     _each(players, (player, playerKey) => {
       // each player create vehicleGroup
       if(!vehicleGroups[playerKey]){
-        vehicleGroups[playerKey] = new VehicleGroup(vehicleCount, player)
+        vehicleGroups[playerKey] = new VehicleGroup(vehicleCount, player, playerKey)
         vehicleGroups[playerKey].init()
       }
 
