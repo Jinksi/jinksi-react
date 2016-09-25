@@ -2,6 +2,7 @@ const firebase = require('firebase')
 const moment = require('moment')
 const _each = require('lodash/each')
 const _remove = require('lodash/remove')
+const _throttle = require('lodash/throttle')
 
 // Initialize Firebase
 var config = {
@@ -232,8 +233,8 @@ export default (p) => {
   }
 
   p.draw = () => {
-    p.blendMode(p.NORMAL)
-    p.background(21, 175)
+    p.blendMode(p.MULTIPLY)
+    p.background(21, 20)
 
     _each(players, (player, playerKey) => {
       // each player create vehicleGroup
@@ -254,11 +255,19 @@ export default (p) => {
     }
   }
 
-  p.mouseMoved = function(){
+  var updateMe = _throttle(() => {
     me.x = p.mouseX / p.windowWidth
     me.y = p.mouseY / p.windowHeight
     me.time = moment().toISOString()
     updatePlayer(me)
+  }, 100)
+
+  p.mouseMoved = function(){
+    updateMe()
+  }
+
+  p.touchMoved = function(){
+    updateMe()
   }
 
   p.windowResized = () => {
