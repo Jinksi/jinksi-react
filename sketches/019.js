@@ -45,8 +45,10 @@ class s019 extends React.Component {
   }
 
   render () {
+    extras.controls.registerAll()
     return (
       <Scene vr-mode-ui={{enabled: false}}>
+        <Entity camera look-controls universal-controls="movementEnabled: false; touchControls: false"></Entity>
         {this.renderPyrs()}
       </Scene>
     );
