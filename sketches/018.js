@@ -1,4 +1,5 @@
-const firebase = require('firebase')
+const firebase = require('firebase/app')
+require('firebase/database')
 const moment = require('moment')
 const _each = require('lodash/each')
 const _remove = require('lodash/remove')
