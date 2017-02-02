@@ -18,9 +18,9 @@ import s013 from '../../sketches/013'
 import s014 from '../../sketches/014'
 import s015 from '../../sketches/015'
 import s016 from '../../sketches/016'
-import s017 from '../../sketches/017'
+// import s017 from '../../sketches/017'
 import s018 from '../../sketches/018'
-import s019 from '../../sketches/019'
+// import s019 from '../../sketches/019'
 
 export default (props) => {
 
@@ -135,23 +135,23 @@ export const sketchData = [
     title: 'shiw',
     file: s016
   },
-  {
-    id:'017',
-    title: 'aframe',
-    file: s017,
-    type: 'aframe'
-  },
+  // {
+  //   id:'017',
+  //   title: 'aframe',
+  //   file: s017,
+  //   type: 'aframe'
+  // },
   {
     id:'018',
     title: 'bioluminescence i',
     file: s018
   },
-  {
-    id:'019',
-    title: 'aframe ii',
-    file: s019,
-    type: 'aframe'
-  },
+  // {
+  //   id:'019',
+  //   title: 'aframe ii',
+  //   file: s019,
+  //   type: 'aframe'
+  // },
 
 
 ]
