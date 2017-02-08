@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+var runSequence = require('run-sequence')
 var gutil = require('gulp-util')
 var rename = require('gulp-rename')
 var del = require('del')
@@ -60,7 +61,7 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('dist/'))
 })
 
-gulp.task('dist-files', ['clean'], function(){
+gulp.task('dist-files', function(){
   gulp.src(['CNAME', 'robots.txt'])
     .pipe(gulp.dest('dist/'))
   gulp.src('style/style.css')
@@ -78,4 +79,8 @@ gulp.task('dist-files', ['clean'], function(){
 })
 
 gulp.task('default', ['serve'])
-gulp.task('build', ['dist-files', 'sass'])
+gulp.task('build', function(done) {
+  runSequence('clean', 'sass', 'dist-files', function() {
+    done()
+  })
+})
