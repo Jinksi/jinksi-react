@@ -62,7 +62,7 @@ gulp.task('webpack', function() {
 })
 
 gulp.task('dist-files', function(){
-  gulp.src(['CNAME', 'robots.txt'])
+  gulp.src(['CNAME', 'robots.txt', '_redirects'])
     .pipe(gulp.dest('dist/'))
   gulp.src('style/style.css')
     .pipe(gulp.dest('dist/style/'))
